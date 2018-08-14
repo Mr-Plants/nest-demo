@@ -4,26 +4,25 @@ import { TestService } from './test.service';
 import { Connection } from 'typeorm';
 import { Websites } from './websites.entity';
 
-// @Controller('api/test')
+// @Controller('api/test')  // 此处可以
 @Controller('test')
 export class TestController {
   constructor(private testService: TestService, private connection: Connection) {
   }
 
+  // 一般回显某条数据用这个方法
   @Get(':id')
-  gogogo(@Headers() header, @Req() req, @Param() params): object {
+  findWebsiteById(@Param() params): Promise<Websites> {
+    // @Param：斜杠'/'后面添加的参数转换的对象，可以在装饰器中加参数来过滤如@Param('id)
     console.log(params);
-    // Header：请求头
-    // Param：{}未知
-    // Req：大对象
-
-    return this.testService.getInfo();
+    return this.testService.findWebsiteById(params.id);
   }
 
+  //
   @Get()
-  getAll(@Query() qur: object): Promise<Websites[]> {
-    // Query：请求参数  @Query('id')可以加参数来限制具体参数
-    console.log(qur);
+  getAll(@Query() query): Promise<Websites[]> {
+    // Query：'?'后的请求参数组成的对象  @Query('id')可以加参数来限制具体参数
+    console.log(query);
     return this.testService.findAll();
   }
 
@@ -34,9 +33,14 @@ export class TestController {
     return '121';
   }
 
+  // 一般编辑数据用这个
   @Put()
   putAction(): string {
     // throw new HttpException('forbidden-无权访问', HttpStatus.FORBIDDEN);  // 可以传入参数或配置对象
     throw new ForbiddenException();   // 使用官方封装好的一些状态方法
   }
+
+  // 其他可添加的装饰器
+  // @Header：请求头
+  // @Req：详细的请求对象，数据量较大
 }

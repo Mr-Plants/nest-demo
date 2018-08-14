@@ -9,14 +9,15 @@ export class TestService {
               private websitesRepository: Repository<Websites>) {
   }
 
-  public getInfo(): object {
-    return {
-      code: 0,
-      data: '测试数据',
-    };
+  // 返回一条结果
+  public async findWebsiteById(id: string): Promise<Websites> {
+    return await this.websitesRepository.findOne();
   }
 
+  // 返回所有的
   public async findAll(): Promise<Websites[]> {
     return await this.websitesRepository.find();
   }
 }
+
+// 这里不仅能返回Promise，还能返回Observe对象，具体参考官方API

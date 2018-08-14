@@ -8,7 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   await app.listen(3000);
 
-  // 总结一个坑，这里最好不要使用webpack热更新，否则使用typeorm会报错
+  // 总结一个坑，这里最好不要使用webpack热更新，否则使用typeOrm会报错
   // if (module.hot) {
   //   console.log('module' + module);
   //   module.hot.accept();
