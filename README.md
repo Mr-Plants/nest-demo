@@ -2,7 +2,8 @@
 
 ## Description
 
-description
+偶然看到这个框架，刚好一直在用Angular做开发，看完基本api就撸了这么一个demo。总结来说，这个框架的确很适合熟悉Angular想开发nodejs的人来学习，
+上手成本较低，期待更多人了解。
 
 ## Installation
 

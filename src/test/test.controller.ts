@@ -2,7 +2,7 @@ import { Controller, Get, Post, Headers, Req, Query, Param, Body, Put, HttpExcep
 import { TodoInfo } from './dto/todoInfo.dto';
 import { TestService } from './test.service';
 import { Connection } from 'typeorm';
-import { Websites } from './test.entity';
+import { Websites } from './websites.entity';
 
 // @Controller('api/test')
 @Controller('test')

@@ -1,5 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm';
-import { Websites } from './test.entity';
+import { Websites } from './websites.entity';
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 
