@@ -21,3 +21,4 @@ export class TestService {
 }
 
 // 这里不仅能返回Promise，还能返回Observe对象，具体参考官方API
+// 其他typeOrm操作api可以参考官方文档，不一一列出

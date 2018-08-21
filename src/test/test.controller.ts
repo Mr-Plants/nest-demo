@@ -4,7 +4,7 @@ import { TestService } from './test.service';
 import { Connection } from 'typeorm';
 import { Websites } from './websites.entity';
 
-// @Controller('api/test')  // 此处可以
+// @Controller('api/test')  // 此处可以配置复杂路径
 @Controller('test')
 export class TestController {
   constructor(private testService: TestService, private connection: Connection) {
@@ -18,7 +18,7 @@ export class TestController {
     return this.testService.findWebsiteById(params.id);
   }
 
-  //
+  // 常用get方法，可以在url后拼接参数
   @Get()
   getAll(@Query() query): Promise<Websites[]> {
     // Query：'?'后的请求参数组成的对象  @Query('id')可以加参数来限制具体参数
